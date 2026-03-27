@@ -1,0 +1,162 @@
+{
+  "id": "earthdata-search-intro",
+  "title": "Earthdata Search",
+  "description": "Discover how NASA's Earth Science data search platform is built — from React UI to serverless backend.",
+  "version": "1.0.0",
+  "steps": [
+    {
+      "id": "welcome",
+      "title": "NASA's Data Discovery Platform",
+      "description": "Earthdata Search lets scientists find, visualize, and download Earth Science data from NASA's Common Metadata Repository. The frontend lives in static/, the serverless backend in serverless/, and shared logic bridges both.",
+      "focusDirectory": "",
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "react-frontend",
+      "title": "React Frontend",
+      "description": "98 components power the UI — search results, an interactive map, granule browsing, and data access workflows. Zustand manages state through 21 domain slices, and Apollo Client handles GraphQL queries to the backend.",
+      "focusDirectory": "static/src/js",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "components",
+          "name": "UI Components",
+          "color": "#3b82f6",
+          "items": [
+            { "path": "static/src/js/components", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "state",
+          "name": "State Management",
+          "color": "#f59e0b",
+          "items": [
+            { "path": "static/src/js/zustand", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "zustand-store",
+      "title": "Zustand State Architecture",
+      "description": "Instead of Redux, state is split into 21 focused slices — collections, granules, map, project, query, user, and more. Each slice owns its domain logic with immer for immutable updates, composed into a single store.",
+      "focusDirectory": "static/src/js/zustand",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "slices",
+          "name": "Store Slices",
+          "color": "#f59e0b",
+          "items": [
+            { "path": "static/src/js/zustand/slices", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "selectors",
+          "name": "Selectors",
+          "color": "#10b981",
+          "items": [
+            { "path": "static/src/js/zustand/selectors", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "serverless-backend",
+      "title": "Serverless Lambda Backend",
+      "description": "30+ Lambda functions handle data access orchestration — ordering through CMR, Harmony, and SWODLR services, plus auth via Earthdata Login, shapefile storage, and a GraphQL API that the frontend queries.",
+      "focusDirectory": "serverless/src",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "graphql",
+          "name": "GraphQL API",
+          "color": "#e535ab",
+          "items": [
+            { "path": "serverless/src/graphQl", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "ordering",
+          "name": "Order Processing",
+          "color": "#ef4444",
+          "items": [
+            { "path": "serverless/src/submitCmrOrderingOrder", "type": "directory" },
+            { "path": "serverless/src/submitHarmonyOrder", "type": "directory" },
+            { "path": "serverless/src/submitSwodlrOrder", "type": "directory" },
+            { "path": "serverless/src/retrieveGranuleLinks", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "multi-tenant-portals",
+      "title": "Multi-Tenant Portal System",
+      "description": "One codebase powers 25+ portals — PODAAC, GHRc, ORNL DAAC, and more. Each portal config customizes branding, default search params, and feature toggles, letting data centers offer tailored search experiences from shared code.",
+      "focusDirectory": "portals",
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "full-picture",
+      "title": "The Full Picture",
+      "description": "React frontend, serverless backend, shared utilities, CDK infrastructure, and a portal system — all composing NASA's primary Earth Science data discovery tool serving thousands of researchers worldwide.",
+      "focusDirectory": "",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "frontend",
+          "name": "Frontend",
+          "color": "#3b82f6",
+          "items": [
+            { "path": "static", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "backend",
+          "name": "Backend",
+          "color": "#ef4444",
+          "items": [
+            { "path": "serverless", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "shared",
+          "name": "Shared Code",
+          "color": "#10b981",
+          "items": [
+            { "path": "sharedUtils", "type": "directory" },
+            { "path": "sharedConstants", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "infra",
+          "name": "Infrastructure",
+          "color": "#f59e0b",
+          "items": [
+            { "path": "cdk", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    }
+  ]
+}
